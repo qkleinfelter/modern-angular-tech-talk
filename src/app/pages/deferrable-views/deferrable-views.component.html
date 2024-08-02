@@ -1,0 +1,26 @@
+<mat-tab-group>
+  <mat-tab label="1">
+    @defer(on timer(5s)) {
+      <p>This will show up after 5 seconds</p>
+    }
+    @placeholder {
+      <p>This text will show until the timer is done</p>
+    }
+  </mat-tab>
+  <mat-tab label="2">
+    @defer(on viewport) {
+      <app-api-request></app-api-request>
+    }
+    @placeholder {
+      <p>Deferred</p>
+    }
+  </mat-tab>
+  <mat-tab label="3">
+    @defer(when initiallyFalse) {
+      <p>This text will appear after the trigger changes</p>
+    }
+    @placeholder {
+      <p>This text will appear until it triggers</p>
+    }
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,37 @@
+<section><button (click)="toggle()" mat-raised-button>Toggle</button></section>
+
+@if (loading) {
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+} @else {
+  <p>not loading</p>
+}
+
+@for (fruit of fruits; track fruit) {
+  <h4>{{ fruit }}</h4>
+}
+
+@switch (accessLevel) {
+  @case ('Admin') {
+    <p>Admin level</p>
+  }
+  @case ('User') {
+    <p>User level</p>
+  }
+  @default {
+    <p>something weird happened here</p>
+  }
+}
+
+@for (level of levels; track level.id) {
+  @switch(level.value) {
+    @case('Admin') {
+      <p>Admin</p>
+    }
+    @case('Moderator') {
+      <p>Moderator</p>
+    }
+    @case('User') {
+      <p>User</p>
+    }
+  }
+}
