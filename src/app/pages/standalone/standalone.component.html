@@ -1,1 +1,11 @@
-<p>standalone works!</p>
+<p>This whole application has no NGModules!</p>
+
+<p>We can still import from existing NGModules, this allows for a migration to occur over time.</p>
+<p>Many libraries are still using NGModules, like these icons rendered from Angular Material's MatIconModule</p>
+<mat-icon fontIcon="home"></mat-icon>
+<mat-icon fontIcon="grade"></mat-icon>
+<mat-icon fontIcon="sync"></mat-icon>
+
+<p>We can also reference standalone components from within an NGModule in its imports array like normal!</p>
+
+<p [ngClass]="{ highlight: true }">Some directives, like ngClass, need to be imported as well</p>
