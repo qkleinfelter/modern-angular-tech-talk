@@ -20,9 +20,22 @@ export class SignalsComponent implements AfterViewInit {
   });
 
   constructor() {
+    const alwaysFalse = false;
     effect(() => {
       console.log(`The current count is: ${this.count()}`);
     });
+
+    effect(() => {
+      // Workaround, ALWAYS read the signal, even if we do nothing with it
+      // then handle the conditional
+      this.count();
+      if (alwaysFalse) {
+        // These signals will not be read
+        // If always false was possible to be changed, even if it was true
+        // we would never see this effect happen
+        console.log(this.count() * 2);
+      }
+    })
   }
 
   increment() {
